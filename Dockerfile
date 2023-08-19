@@ -12,5 +12,7 @@ WORKDIR /usr/src/app/
 # Copy all files and folders from your current directory into the container
 COPY . /usr/src/app/
 
+RUN pip3 install Flask
+
 # Run the Python file (replace with your actual command)
 CMD ["python3", "main.py"]
