@@ -1,9 +1,16 @@
 FROM alpine:3
 
-RUN apk add --no-cache bash ffmpeg
+# Update and install Python and required packages
+RUN apk update && \
+    apk add --no-cache python3 && \
+    pip3 install --upgrade pip && \
+    apk add --no-cache bash ffmpeg
 
-RUN mkdir /usr/src/app -p
+# Set the working directory inside the container
 WORKDIR /usr/src/app/
 
-ADD . /usr/src/app/
-CMD ./stream.sh
+# Copy all files and folders from your current directory into the container
+COPY . /usr/src/app/
+
+# Run the Python file (replace with your actual command)
+CMD ["python3", "main.py"]
