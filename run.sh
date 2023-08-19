@@ -1,2 +1,2 @@
 bash alive.sh &
-bash yt.sh
+bash stream.sh
