@@ -2,9 +2,9 @@
 
 # Update and install Python, required packages, Bash, and FFmpeg
 #RUN apk update && \
-    apk add --no-cache python3 && \
-    pip3 install --upgrade pip && \
-    apk add --no-cache bash ffmpeg
+#    apk add --no-cache python3 && \
+#    pip3 install --upgrade pip && \
+#    apk add --no-cache bash ffmpeg
 
 # Set the working directory inside the container
 #WORKDIR /usr/src/app/
