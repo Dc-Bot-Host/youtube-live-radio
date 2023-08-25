@@ -10,5 +10,5 @@ do
     -c:v libx264 -preset veryfast -b:v 3000k -maxrate 3000k -bufsize 6000k \
     -framerate 25 -video_size 1280x720 -vf "format=yuv420p" -g 50 -shortest -strict experimental \
     -c:a aac -b:a 128k -ar 44100 \
-    -f flv rtmp://a.rtmp.youtube.com/live2/xpft-zshj-vvj2-32h7-2pba
+    -f flv rtmp://broadcast.api.video/s/cb08eb88-ba24-4d7e-8b8b-a1cc84b89e2e
 done
