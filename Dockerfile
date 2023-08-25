@@ -1,24 +1,22 @@
-# Use the official Ubuntu base image
-FROM ubuntu:latest
+# Use the official Python base image
+FROM python:3.9
 
-# Set environment variables
-ENV DEBIAN_FRONTEND=noninteractive
-
-# Update and install necessary packages
-RUN apt-get update && \
-    apt-get install -y python3 python3-pip ffmpeg
-
-# Set working directory
+# Create and set the working directory inside the container
 WORKDIR /app
 
-# Copy all files and folders into the container
-COPY . .
+# Copy all files from the local directory into the container
+COPY . /app/
 
-# Install Flask and other dependencies
-RUN pip3 install --no-cache-dir -r requirements.txt
+# Install required packages
+RUN apt-get update && \
+    apt-get install -y ffmpeg && \
+    pip install -r requirements.txt
+
+# Make shell scripts executable
+RUN chmod +x alive.sh yt.sh run.sh
 
 # Expose port 8080
 EXPOSE 8080
 
-# Set the command to run the Flask app
-CMD ["python3", "main.py"]
+# Run the Python script when the container starts
+CMD ["python", "main.py"]
